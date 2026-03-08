@@ -1,8 +1,4 @@
 {
-  "type": "module",
-  "scripts": {
-    "start": "tsx ./src/index.ts"
-  },
   "compilerOptions": {
     "baseUrl": ".",
     "target": "esnext",
