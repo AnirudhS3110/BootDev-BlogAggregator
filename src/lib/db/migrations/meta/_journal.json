@@ -8,6 +8,13 @@
       "when": 1772971401142,
       "tag": "0000_condemned_madame_hydra",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1773055602212,
+      "tag": "0001_first_wild_pack",
+      "breakpoints": true
     }
   ]
 }

@@ -1,11 +1,25 @@
-import { CommandRegistry } from "./commandHandler";
-import { readConfig, registerCommand, runCommand, setUser } from "./config";
+import { CommandRegistry } from "./types";
+import { readConfig, registerCommand, runCommand } from "./config";
 import handlerLogin from "./handler/loginHandler";
-import { argv } from "node:process";
+import registerHandler from "./handler/registerHandler";
+import resetHandler from "./handler/resetHandler";
+import usersHandler from "./handler/usersHandler";
+import aggHandler from "./handler/aggHandler";
+import addfeedHandler from "./handler/addfeedHandler";
+import { initState } from "./state.js";
 
-function main() {
+
+
+async function main() {
   const registry:CommandRegistry = {};
+  
   registerCommand(registry,"login",handlerLogin);
+  registerCommand(registry,"register",registerHandler);
+  registerCommand(registry,"reset",resetHandler);
+  registerCommand(registry,"users",usersHandler);
+  registerCommand(registry,"agg",aggHandler);
+  registerCommand(registry,"addfeed",addfeedHandler);
+  await initState();
 
   const cargs  = process.argv.slice(2);
 
@@ -17,10 +31,12 @@ function main() {
   }
     
   else{
+    
     const [cmd,...args] = cargs;
-    runCommand(registry,cmd,...args);
+    
+    await runCommand(registry,cmd,...args);
   }
-  
+  process.exit(0);
 }
 
 main();

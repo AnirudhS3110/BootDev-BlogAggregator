@@ -1,14 +1,16 @@
 import os from "os";
 import path from "path";
-import fs, { fdatasync } from "fs";
-import { CommandHandler, CommandRegistry } from "./commandHandler";
+import fs from "fs";
+import { CommandHandler, CommandRegistry } from "./types";
 
 export type Config = {
     dbUrl:string;
     currentUserName?:string
 }
 
-const configPath = path.join(os.homedir(), ".gatorconfig.json");
+
+
+export const configPath = path.join(os.homedir(), ".gatorconfig.json");
 
 export function setUser(currentUserName:string):void
 {
@@ -35,7 +37,7 @@ export function registerCommand(registry:CommandRegistry, cmdName:string, handle
     registry[cmdName] = handler;
 }
 
-export function runCommand(registry:CommandRegistry , cmdName:string, ...args:string[])
+export async function runCommand(registry:CommandRegistry , cmdName:string, ...args:string[])
 {
-    registry[cmdName](cmdName,...args);
+    await registry[cmdName](cmdName,...args);
 }
