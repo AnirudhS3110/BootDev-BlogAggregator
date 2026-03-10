@@ -1,4 +1,6 @@
+import { createFeedFollow } from "src/lib/db/queries/feed_follow";
 import { createFeed } from "src/lib/db/queries/feeds";
+import followHandler from "./followHandler";
 
 
 export default async function addfeedHandler(cmdName:string , ...args:string[]):Promise<void>
@@ -15,6 +17,7 @@ export default async function addfeedHandler(cmdName:string , ...args:string[]):
     if(!result)
         throw new Error("Feed was not created");
     console.log("Feed was created");
+    await followHandler("follow",url);
  }   
  catch(e)
  {

@@ -17,16 +17,11 @@ export async function initState():Promise<void>
         
         const result = await  db.select().from(users).where(eq(users.name,username));
         
-        console.log(result);
        if(result.length >= 1)
        {
         state.user = username;
-        state.userId = result[0].id;
-        console.log(state.userId);
-        console.log("Completed Initialiaing state");
+        state.userId = result[0].id; 
        }
-        
-        
     }
     catch(e)
     {

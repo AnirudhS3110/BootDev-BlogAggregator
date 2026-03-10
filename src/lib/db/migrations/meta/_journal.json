@@ -15,6 +15,20 @@
       "when": 1773055602212,
       "tag": "0001_first_wild_pack",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1773168342738,
+      "tag": "0002_safe_black_bolt",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1773169280202,
+      "tag": "0003_legal_punisher",
+      "breakpoints": true
     }
   ]
 }

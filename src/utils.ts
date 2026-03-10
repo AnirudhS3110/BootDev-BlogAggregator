@@ -1,5 +1,6 @@
 import { XMLParser } from "fast-xml-parser";
 import { RSSFeed, RSSItem, State } from "./types";
+import { exit } from "node:process";
 
 
 export async function fetchFeed(feedURL:string):Promise<RSSFeed>
@@ -61,5 +62,12 @@ export async function fetchFeed(feedURL:string):Promise<RSSFeed>
             console.log(e.message);
         process.exit(1);
     }
+}
+
+export function errorHandler(e:unknown)
+{
+    if(e instanceof Error)
+        console.log(e.message);
+    exit(1);
 }
 

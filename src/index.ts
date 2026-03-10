@@ -7,6 +7,9 @@ import usersHandler from "./handler/usersHandler";
 import aggHandler from "./handler/aggHandler";
 import addfeedHandler from "./handler/addfeedHandler";
 import { initState } from "./state.js";
+import feedHandler from "./handler/feedHandler";
+import followHandler from "./handler/followHandler";
+import followingHandler from "./handler/followingHandler";
 
 
 
@@ -19,6 +22,9 @@ async function main() {
   registerCommand(registry,"users",usersHandler);
   registerCommand(registry,"agg",aggHandler);
   registerCommand(registry,"addfeed",addfeedHandler);
+  registerCommand(registry,"feeds",feedHandler);
+  registerCommand(registry,"follow",followHandler);
+  registerCommand(registry,"following",followingHandler);
   await initState();
 
   const cargs  = process.argv.slice(2);
