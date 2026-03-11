@@ -1,4 +1,4 @@
-# Blog Aggregator CLI
+# Gator - A Blog Aggregator CLI
 
 A command-line blog aggregator written in TypeScript that allows you to follow RSS feeds, aggregate their content, and browse posts from multiple sources in one place.
 
