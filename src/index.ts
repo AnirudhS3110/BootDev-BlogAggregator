@@ -5,11 +5,13 @@ import registerHandler from "./handler/registerHandler";
 import resetHandler from "./handler/resetHandler";
 import usersHandler from "./handler/usersHandler";
 import aggHandler from "./handler/aggHandler";
-import addfeedHandler from "./handler/addfeedHandler";
+import addfeedHandler from "./handler/feedHandlers/addfeedHandler";
 import { initState } from "./state.js";
-import feedHandler from "./handler/feedHandler";
-import followHandler from "./handler/followHandler";
-import followingHandler from "./handler/followingHandler";
+import feedHandler from "./handler/feedHandlers/feedHandler";
+import followHandler from "./handler/followHandlers/followHandler";
+import followingHandler from "./handler/followHandlers/followingHandler";
+import unfollowHandler from "./handler/followHandlers/unfollowHandler";
+import browseHandler from "./handler/browseHandler";
 
 
 
@@ -25,6 +27,8 @@ async function main() {
   registerCommand(registry,"feeds",feedHandler);
   registerCommand(registry,"follow",followHandler);
   registerCommand(registry,"following",followingHandler);
+  registerCommand(registry,"unfollow",unfollowHandler);
+  registerCommand(registry,"browse",browseHandler);
   await initState();
 
   const cargs  = process.argv.slice(2);
@@ -39,7 +43,6 @@ async function main() {
   else{
     
     const [cmd,...args] = cargs;
-    
     await runCommand(registry,cmd,...args);
   }
   process.exit(0);

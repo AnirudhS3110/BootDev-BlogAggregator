@@ -11,6 +11,12 @@ export default async function followingHandler(cmdName:string , ...args:string[]
         if(!following)
             throw new Error("DB error");
 
+        if(following.length==0)
+        {
+            console.log("You are not following any feed");
+            return;
+        }
+
         console.log("List of Feeds you are Following")
         for(const feed of following)
             console.log(feed.feedName);

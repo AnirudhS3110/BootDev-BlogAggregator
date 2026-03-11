@@ -1,6 +1,6 @@
 import { createFeedFollow } from "src/lib/db/queries/feed_follow";
 import { createFeed } from "src/lib/db/queries/feeds";
-import followHandler from "./followHandler";
+import followHandler from "../followHandlers/followHandler";
 
 
 export default async function addfeedHandler(cmdName:string , ...args:string[]):Promise<void>
